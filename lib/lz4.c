@@ -287,10 +287,6 @@ static void MT_wildCopyNarrowLE(BYTE* destStart, const BYTE* srcStart, BYTE* con
             {
                 LZ4_copy8(off, &val);
             }
-//            for (U64* off = (U64*)destStart; off < (U64*)destEnd; off++)
-//            {
-//                *off = val;
-//            }
             break;
         default:
             // slipDistance = 8 * (8 % distance), but avoid the mod operation:
@@ -302,12 +298,6 @@ static void MT_wildCopyNarrowLE(BYTE* destStart, const BYTE* srcStart, BYTE* con
                 val >>= slipDistance;
                 val |= val << wrapDistance;
             }
-//            for (U64* off = (U64*)destStart; off < (U64*)destEnd; off++)
-//            {
-//                *off = val;
-//                val >>= slipDistance;
-//                val |= val << wrapDistance;
-//            }
     }
 }
 
